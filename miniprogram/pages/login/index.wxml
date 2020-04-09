@@ -1,0 +1,38 @@
+
+<!-- <view> -->
+<view class='top text-center'>
+  <view style="padding-top: 60rpx">
+    <image src="../../images/tabbar/component_cur.png" class="logo"></image>
+  </view>
+  <view>
+    <text class="text-xl text-bold text-white" style="line-height: 40px">毕业设计管理系统</text>
+  </view>
+</view>
+<form bindsubmit="formSubmit">
+  <view class='contents'>
+    <view class='content-text'>
+      <view class='user_name'>
+        <text class="cuIcon-people text-gray padding-right iconSty"></text>
+        <input style="width:100%" name="userName" placeholder='请输入用户名'></input>
+      </view>
+    </view>
+    <view class='content-text'>
+      <view class='user_name'>
+        <text class="cuIcon-command text-gray padding-right iconSty"></text>
+        <input style="width:100%" name="password" type='password' placeholder='请输入登录密码'></input>
+      </view>
+    </view>
+  </view>
+  <view class="text-center" style="margin-top: 50px">
+   <button class='cu-btn bg-blue shadow-blur' form-type='submit' style="width: 80%"><text class="text-lg">登录</text>
+   </button>
+  </view>
+</form>
+<view class='bottom'>
+  <view>
+    ------------------------------------------
+  </view>
+  <text>还没有账号，</text><text bindtap="toRegister" class="text-blue cus-pon">立即注册</text>
+  
+</view>
+<!-- </view> -->

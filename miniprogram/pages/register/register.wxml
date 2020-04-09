@@ -1,0 +1,52 @@
+<!--miniprogram/pages/register/register.wxml-->
+<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+  <view class="flex justify-center">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
+    <block wx:else>
+      <view class='text-center'>
+        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="padding">{{userInfo.nickName}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+<form bindsubmit="register">
+	<view class="cu-form-group margin-top">
+		<view class="title">身份类型</view>
+		<picker name="identityType" bindchange="PickerChange" value="{{identityType}}" range="{{picker}}">
+			<view class="picker">
+				{{identityType ? picker[identityType] : '请选择老师身份或学生身份'}}
+			</view>
+		</picker>
+	</view>
+  <view wx:if="{{identityType != ''}}">
+    <view class="cu-form-group">
+      <view class="title">姓名</view>
+      <input name="userName" placeholder="请输入姓名" type="text"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">密码</view>
+      <input name="password" placeholder="请输入密码" type="password"></input>
+    </view>
+    <view class="cu-form-group" wx:if="{{identityType == 1}}">
+      <view class="title">学号</view>
+      <input name="studentNum" placeholder="请输入学号" type="text"></input>
+    </view>
+    <view class="cu-form-group" wx:if="{{identityType == 1}}">
+      <view class="title">专业</view>
+      <input name="major" placeholder="请输入专业" type="text"></input>
+    </view>
+    <view class="cu-form-group" wx:if="{{identityType == 0}}">
+      <view class="title">专攻方向</view>
+      <input name="mainDirection" placeholder="请输入专攻方向" type="text"></input>
+    </view>
+    <view class="cu-form-group align-start" wx:if="{{identityType == 0}}">
+      <view class="title">自我介绍</view>
+      <textarea name="myInfo" maxlength="-1" row="10" placeholder="请输入自我介绍"></textarea>
+    </view>
+  </view>
+
+  <view class="text-center" style="position: fixed; bottom: 140rpx; width: 100%">
+    <button class='cu-btn round bg-blue button-hover login-btn' form-type='submit'><text class="text-lg">注册</text></button>
+  </view>
+</form>
